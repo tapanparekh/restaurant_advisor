@@ -1,0 +1,12 @@
+<div class="restaurant" [routerLink]="['/restaurant-details/'+details.id]">
+    <img class="restaurant-image" [src]="details.restaurantImage">
+    <div class="restaurant-detail">
+        <span class="restaurant-name">{{details.restaurantName}}</span>
+        <span class="restaurant-status"
+            [ngClass]="{'is-open':details.isOpen,'is-close':!details.isOpen}">{{details.isOpen?'Open
+            Now':'Closed'}}</span>
+    </div>
+    <div class="restaurant-description">
+        <span>{{details.restaurantDescription}}</span>
+    </div>
+</div>

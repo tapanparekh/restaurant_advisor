@@ -1,0 +1,24 @@
+.restaurant-detail {
+    display: flex;
+    .restaurant-image {
+        width: 559px;
+        height: 296px;
+        border-radius: 16px;
+    }
+}
+
+.restaurant-menu {
+    .menu-item {
+        display: flex;
+        flex-wrap: wrap;
+        .menu {
+            height: 246px;
+            flex: 0 0 33.333333%;
+        }
+    }
+    .menu-item-image {
+        width: 336px;
+        height: 176px;
+        border-radius: 16px;
+    }
+}

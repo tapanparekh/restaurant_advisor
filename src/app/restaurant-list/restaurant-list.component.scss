@@ -1,0 +1,41 @@
+.restaurant-container {
+    .title {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 32px;
+    }
+    .category {
+        .category-list {
+            margin-top: 32px;
+            display: flex;
+            flex-wrap: wrap;
+            .category-item {
+                height: 44px;
+                margin-right: 48px;
+                .category-image {
+                    width: 44px;
+                    height: 44px;
+                    background: #f7f7f7;
+                    border-radius: 12px;
+                    margin-right: 15px;
+                }
+                .category-name {
+                    font-weight: 700;
+                    font-size: 16px;
+                    line-height: 24px;
+                }
+            }
+        }
+    }
+    .restaurant {
+        .restaurant-list {
+            display: flex;
+            flex-wrap: wrap;
+            .abc {
+                margin-right: 32px;
+                margin-top: 32px;
+                width: 30%;
+            }
+        }
+    }
+}

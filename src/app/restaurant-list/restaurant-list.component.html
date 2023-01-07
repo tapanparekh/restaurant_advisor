@@ -1,0 +1,18 @@
+<div class="restaurant-container">
+    <div class="category">
+        <span class="title">Category</span>
+        <div class="category-list">
+            <div class="category-item" *ngFor="let category of categoryList">
+                <span class="category-image"><i class="bi bi-cup-straw"></i></span>
+                <span class="category-name">{{category}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="restaurant">
+        <span class="title">Restaurants</span>
+        <div class="restaurant-list">
+            <app-restaurant *ngFor="let restaurant of restaurantList" [details]="restaurant" class="abc">
+            </app-restaurant>
+        </div>
+    </div>
+</div>

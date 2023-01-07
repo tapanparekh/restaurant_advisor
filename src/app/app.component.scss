@@ -1,0 +1,7 @@
+.main-container {
+    display: flex;
+    .page-container {
+        overflow-y: auto;
+        margin-left: calc(20% + 32px);
+    }
+}

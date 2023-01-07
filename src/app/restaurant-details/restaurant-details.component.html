@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="restaurant-detail">
+        <div>
+            <h2>{{restaurant.restaurantName}}</h2>
+            <p>{{restaurant.restaurantDescription}}</p>
+            <p>{{restaurant.openingHours}}</p>
+            <p>{{restaurant.contactNumber}}</p>
+            <p>{{restaurant.websiteUrl}}</p>
+        </div>
+        <div>
+            <img [src]="restaurant.restaurantImage" [alt]="restaurant.restaurantName" class="restaurant-image" />
+        </div>
+    </div>
+    <div class="restaurant-menu">
+        <h2>Menu</h2>
+        <div class="menu-item">
+            <div *ngFor="let menuItem of menuItems" class="menu">
+                <img [src]="menuItem.itemPhoto" [alt]="menuItem.itemName" class="menu-item-image" />
+                <div>
+                    <span>{{menuItem.itemName}}</span>
+                    <span>{{menuItem.itemCost | currency:"GBP":"symbol"}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

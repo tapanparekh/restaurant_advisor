@@ -1,0 +1,46 @@
+.top-bar {
+    margin: 32px 32px 32px 0;
+    .toggle-side-bar {
+        background: #503e9d;
+        margin-left: 0;
+    }
+    .right-nav {
+        float: right;
+        .da-otto-icon {
+            color: #503e9d;
+        }
+        .da-otto-text {
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 24px;
+            color: #182135;
+        }
+        .chevron {
+            margin-left: 44px;
+        }
+        .search {
+            margin-left: 40px;
+            width: 275px;
+            height: 40px;
+            background: #f7f7f7;
+            border: none;
+            border-radius: 10px;
+        }
+        .filter {
+            background: #503e9d;
+        }
+        .cart {
+            background: #fb6d3a;
+        }
+    }
+
+    button {
+        height: 40px;
+        width: 40px;
+        border-radius: 10px;
+        color: #ffffff;
+        border: none;
+        font-size: large;
+        margin-left: 16px;
+    }
+}
