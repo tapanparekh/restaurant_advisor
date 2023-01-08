@@ -1,24 +1,106 @@
-.restaurant-detail {
-    display: flex;
-    .restaurant-image {
-        width: 559px;
-        height: 296px;
-        border-radius: 16px;
+.container {
+    hr {
+        width: 35%;
+        margin-top: 48px;
+        margin-bottom: 48px;
+        border: 1px solid rgba(163, 163, 164, 0.32);
     }
-}
-
-.restaurant-menu {
-    .menu-item {
-        display: flex;
-        flex-wrap: wrap;
-        .menu {
-            height: 246px;
-            flex: 0 0 33.333333%;
+    .category-filter {
+        .category {
+            cursor: pointer;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 24px;
+            background: #f7f7f7;
+            border-radius: 8px;
+            color: #626264;
+            border: none;
+            padding: 8px 16px;
+            margin-right: 16px;
+        }
+        .category.active {
+            background: #503e9d;
+            color: #f7fafc;
         }
     }
-    .menu-item-image {
-        width: 336px;
-        height: 176px;
-        border-radius: 16px;
+    .restaurant-detail {
+        cursor: pointer;
+        display: flex;
+        margin-right: 32px;
+        color: #626264;
+        @media only screen and (max-width: 600px) {
+            display: unset;
+        }
+        .detail {
+            margin-right: 16px;
+            .restaurant-name {
+                color: #182135;
+                font-weight: 700;
+                font-size: 32px;
+                line-height: 40px;
+            }
+            .description {
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 24px;
+            }
+            .website {
+                a {
+                    text-decoration: none;
+                    color: #626264;
+                }
+            }
+        }
+        .image {
+            @media only screen and (max-width: 600px) {
+                margin-right: 16px;
+            }
+            .restaurant-image {
+                width: 559px;
+                height: 296px;
+                border-radius: 16px;
+                @media only screen and (max-width: 600px) {
+                    width: 100%;
+                    height: unset;
+                    margin-right: 16px;
+                }
+            }
+        }
+    }
+
+    .restaurant-menu {
+        .menu-item {
+            display: flex;
+            flex-wrap: wrap;
+            .menu {
+                margin: 0 32px 32px 0;
+                width: 30.6%;
+                @media only screen and (max-width: 600px) {
+                    width: 100%;
+                    margin: 0 16px 32px 0;
+                }
+                .menu-item-image {
+                    width: 100%;
+                    height: 200px;
+                    border-radius: 16px;
+                }
+                .item-detail {
+                    margin-top: 16px;
+                    .item-name {
+                        font-weight: 700;
+                        font-size: 16px;
+                        line-height: 24px;
+                        color: #182135;
+                    }
+                    .item-cost {
+                        float: right;
+                        font-weight: 600;
+                        font-size: 16px;
+                        line-height: 24px;
+                        color: #503e9d;
+                    }
+                }
+            }
+        }
     }
 }

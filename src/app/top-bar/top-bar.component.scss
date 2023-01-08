@@ -3,20 +3,35 @@
     .toggle-side-bar {
         background: #503e9d;
         margin-left: 0;
+        @media only screen and (max-width: 600px) {
+            display: none;
+        }
     }
     .right-nav {
         float: right;
+        @media only screen and (max-width: 600px) {
+            float: none;
+        }
         .da-otto-icon {
             color: #503e9d;
+            @media only screen and (max-width: 600px) {
+                display: none;
+            }
         }
         .da-otto-text {
             font-weight: 600;
             font-size: 14px;
             line-height: 24px;
             color: #182135;
+            @media only screen and (max-width: 600px) {
+                display: none;
+            }
         }
         .chevron {
             margin-left: 44px;
+            @media only screen and (max-width: 600px) {
+                display: none;
+            }
         }
         .search {
             margin-left: 40px;
@@ -25,12 +40,19 @@
             background: #f7f7f7;
             border: none;
             border-radius: 10px;
+            @media only screen and (max-width: 600px) {
+                margin-left: 0;
+                width: auto;
+            }
         }
         .filter {
             background: #503e9d;
         }
         .cart {
             background: #fb6d3a;
+            @media only screen and (max-width: 600px) {
+                float: right;
+            }
         }
     }
 

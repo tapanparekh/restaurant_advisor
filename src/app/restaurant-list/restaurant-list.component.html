@@ -1,4 +1,4 @@
-<div class="restaurant-container">
+<div class="restaurant-container" *ngIf="!isLoading">
     <div class="category">
         <span class="title">Category</span>
         <div class="category-list">
@@ -8,10 +8,11 @@
             </div>
         </div>
     </div>
-    <div class="restaurant">
+    <div class="restaurants">
         <span class="title">Restaurants</span>
         <div class="restaurant-list">
-            <app-restaurant *ngFor="let restaurant of restaurantList" [details]="restaurant" class="abc">
+            <app-restaurant *ngFor="let restaurant of restaurantList | filterRestaurant:searchQuery:'restaurant'"
+                [details]="restaurant" class="restaurant">
             </app-restaurant>
         </div>
     </div>

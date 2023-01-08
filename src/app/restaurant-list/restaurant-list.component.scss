@@ -27,14 +27,21 @@
             }
         }
     }
-    .restaurant {
+    .restaurants {
         .restaurant-list {
             display: flex;
             flex-wrap: wrap;
-            .abc {
+            @media only screen and (max-width: 600px) {
+                margin-right: 16px;
+            }
+            .restaurant {
                 margin-right: 32px;
                 margin-top: 32px;
-                width: 30%;
+                width: 30.6%; 
+                @media only screen and (max-width: 600px) {
+                    width: 100%;
+                    margin-right: 0;
+                }
             }
         }
     }

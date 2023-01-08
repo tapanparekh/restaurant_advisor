@@ -11,6 +11,8 @@ export class RestaurantListComponent implements OnInit {
 
   restaurantList: IRestaurant[] = [];
   categoryList: string[] = [];
+  searchQuery: string = '';
+  isLoading: boolean = true;
 
   constructor(
     private restaurantService: RestaurantService
@@ -18,10 +20,16 @@ export class RestaurantListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.restaurantService.startLoader();
     this.restaurantService.getAllResraurant().subscribe((restaurantList) => {
       this.restaurantList = restaurantList.allRestaurants;
       this.getCategoryList();
+      this.restaurantService.stopLoader();
+      this.isLoading = false;
     });
+    this.restaurantService.executeSearchSubject.subscribe((searchString) => {
+      this.searchQuery = searchString;
+    })
   }
 
   getCategoryList(): void {

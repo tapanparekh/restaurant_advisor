@@ -1,15 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { filter } from 'rxjs';
+import { filter, Subject } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
 import { IRestaurantList, IRestaurantDetail, IMenuList } from './IRestaurant';
 
 
 @Injectable()
 export class RestaurantService {
+  executeSearchSubject: Subject<string> = new Subject();
+  setLoaderSubject: Subject<boolean> = new Subject();
   private baseUrl: string = 'https://api.sheety.co/bdcbafbc1f4197dda178b9e69f6ccee9/techAlchemyWebTest1/';
-  constructor(private http: HttpClient) {
 
+  constructor(private http: HttpClient) {
   }
 
   /**
@@ -35,6 +37,28 @@ export class RestaurantService {
    */
   getMenuItems(): Observable<IMenuList> {
     return this.http.get<IMenuList>(`${this.baseUrl}menu`);
+  }
+
+  /**
+   * This method is used to execute searech
+   * @param searchQuery Search query
+   */
+  executeSearch(searchQuery: string): void {
+    this.executeSearchSubject.next(searchQuery);
+  }
+
+  /**
+   * This method is used to start the loader
+   */
+  startLoader(): void {
+    this.setLoaderSubject.next(true);
+  }
+
+  /**
+   * This method is used to stop the loader
+   */
+  stopLoader(): void {
+    this.setLoaderSubject.next(false);
   }
 
 }

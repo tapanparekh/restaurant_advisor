@@ -13,6 +13,9 @@ export class RestaurantDetailsComponent implements OnInit {
   restaurantId: string = '';
   restaurant: IRestaurant = {};
   menuItems: IMenu[] = [];
+  isLoading: boolean = true;
+  categoryList: string[] = ['All'];
+  selectedCatogary: string = '';
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -22,12 +25,33 @@ export class RestaurantDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.restaurantService.startLoader();
     this.restaurantService.getResraurantDetails(this.restaurantId).subscribe((restaurantDetail) => {
       this.restaurant = restaurantDetail.restaurantDetail;
       this.restaurantService.getMenuItems().subscribe((menu) => {
         this.menuItems = menu.menu.filter((m) => m.restaurantName && m.restaurantName.length && m.restaurantName.includes(this.restaurant.restaurantName || ''));
+        this.getCategoryList();
       });
+      this.restaurantService.stopLoader();
+      this.isLoading = false;
     });
+  }
+
+  getCategoryList(): void {
+    this.menuItems.forEach(menu => {
+      const restaurantCategory = JSON.parse(menu.itemCategory || '');
+      if (restaurantCategory && restaurantCategory.length) {
+        restaurantCategory.forEach((category: string) => {
+          if (!this.categoryList.includes(category)) {
+            this.categoryList.push(category);
+          }
+        });
+      }
+    });
+  }
+
+  selectCategory(category: string): void {
+    this.selectedCatogary = category !== 'All' ? category : '';
   }
 
 }

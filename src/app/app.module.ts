@@ -13,6 +13,11 @@ import { RestaurantService } from './restaurant.service';
 import { RestaurantComponent } from './restaurant-list/restaurant/restaurant.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
+import { FilterRestaurantPipe } from './filter-restaurant.pipe';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+// Import library module
+import { NgxSpinnerModule } from "ngx-spinner";
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,11 +27,15 @@ import { TopBarComponent } from './top-bar/top-bar.component';
     RestaurantComponent,
     SideBarComponent,
     TopBarComponent,
+    FilterRestaurantPipe,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    NgxSpinnerModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true },

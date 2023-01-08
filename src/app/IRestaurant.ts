@@ -26,8 +26,8 @@ export interface IMenuList {
 export interface IMenu {
     itemName?: string;
     itemCost?: string;
-    itemCategory?: string[];
+    itemCategory?: string;
     itemPhoto?: string;
-    restaurantName?: string[];
+    restaurantName?: string;
     id?: string;
 }

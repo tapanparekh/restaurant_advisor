@@ -1,24 +1,33 @@
-<div class="container">
+<div class="container" *ngIf="!isLoading">
     <div class="restaurant-detail">
-        <div>
-            <h2>{{restaurant.restaurantName}}</h2>
-            <p>{{restaurant.restaurantDescription}}</p>
-            <p>{{restaurant.openingHours}}</p>
-            <p>{{restaurant.contactNumber}}</p>
-            <p>{{restaurant.websiteUrl}}</p>
+        <div class="detail">
+            <span class="restaurant-name">{{restaurant.restaurantName}}</span>
+            <p class="description">{{restaurant.restaurantDescription}}</p>
+            <p><i class="bi bi-clock"></i> {{restaurant.openingHours}}</p>
+            <p><i class="bi bi-telephone-fill"></i> <a href="tel:{{restaurant.contactNumber}}"></a>{{restaurant.contactNumber}}</p>
+            <p class="website"><i class="bi bi-globe2"></i><a target="_blank" [href]="restaurant.websiteUrl">
+                    {{restaurant.websiteUrl}}</a></p>
         </div>
-        <div>
+        <div class="image">
             <img [src]="restaurant.restaurantImage" [alt]="restaurant.restaurantName" class="restaurant-image" />
         </div>
+    </div>
+    <hr>
+    <div class="category-filter">
+        <ng-container *ngFor="let category of categoryList">
+            <button (click)="selectCategory(category)"
+                [ngClass]="{'category':true,'active':(category===selectedCatogary) || (selectedCatogary==='' && category==='All' )}">{{category}}</button>
+        </ng-container>
     </div>
     <div class="restaurant-menu">
         <h2>Menu</h2>
         <div class="menu-item">
-            <div *ngFor="let menuItem of menuItems" class="menu">
-                <img [src]="menuItem.itemPhoto" [alt]="menuItem.itemName" class="menu-item-image" />
-                <div>
-                    <span>{{menuItem.itemName}}</span>
-                    <span>{{menuItem.itemCost | currency:"GBP":"symbol"}}</span>
+            <div *ngFor="let menuItem of menuItems | filterRestaurant:selectedCatogary:'menu'" class="menu">
+                <img [src]="menuItem.itemPhoto" [alt]="menuItem.itemName" class="menu-item-image"
+                    (error)="menuItem.itemPhoto='https://www.visitstockholm.com/media/images/wang1.width-1440.jpg'" />
+                <div class="item-detail">
+                    <span class="item-name">{{menuItem.itemName}}</span>
+                    <span class="item-cost">{{menuItem.itemCost | currency:"GBP":"symbol"}}</span>
                 </div>
             </div>
         </div>

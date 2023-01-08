@@ -1,11 +1,10 @@
 <div class="top-bar">
     <button class="toggle-side-bar"><i class="bi bi-chevron-compact-left"></i></button>
     <div class="right-nav">
-        <span class="da-otto-icon"><i class="bi bi-houses-fill"></i>
-        </span><span class="da-otto-text"></span> Da Otto
+        <span class="da-otto-icon"><i class="bi bi-houses-fill"></i></span><span class="da-otto-text"> Da Otto</span> 
         <span class="chevron"><i class="bi bi-chevron-expand"></i></span>
-        <input type="text" class="search" placeholder="Search for Restaurants  (Press Enter to search)" />
-        <button class="filter"><i class="bi bi-filter"></i></button>
+        <input type="text" class="search" [(ngModel)]="searchQuery" placeholder="Search for Restaurants (Press Enter to search)" (change)="executeSearch($event)" />
+        <button class="filter" (click)="executeSearch(searchQuery)"><i class="bi bi-filter"></i></button>
         <button class="cart"><i class="bi bi-cart-fill"></i></button>
     </div>
 </div>
