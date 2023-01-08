@@ -2,7 +2,7 @@
     hr {
         width: 35%;
         margin-top: 48px;
-        margin-bottom: 48px;
+        margin-bottom: 32px;
         border: 1px solid rgba(163, 163, 164, 0.32);
     }
     .category-filter {
@@ -17,6 +17,7 @@
             border: none;
             padding: 8px 16px;
             margin-right: 16px;
+            margin-top: 16px;
         }
         .category.active {
             background: #503e9d;
@@ -74,7 +75,7 @@
             flex-wrap: wrap;
             .menu {
                 margin: 0 32px 32px 0;
-                width: 30.6%;
+                width: 30%;
                 @media only screen and (max-width: 600px) {
                     width: 100%;
                     margin: 0 16px 32px 0;

@@ -1,9 +1,9 @@
 <div class="main-container">
     <ngx-spinner type="ball-scale-multiple"></ngx-spinner>
-    <app-side-bar></app-side-bar>
-    <div class="page-container">
+    <app-side-bar [toggleSidebar]="sidebarStatus"></app-side-bar>
+    <div class="page-container" id="page-container">
         <div>
-            <app-top-bar></app-top-bar>
+            <app-top-bar (toggleSidebarEvent)="toggleSidebarEvent($event)"></app-top-bar>
         </div>
         <div>
             <router-outlet></router-outlet>

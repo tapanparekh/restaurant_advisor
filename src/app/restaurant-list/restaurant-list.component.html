@@ -12,7 +12,7 @@
         <span class="title">Restaurants</span>
         <div class="restaurant-list">
             <app-restaurant *ngFor="let restaurant of restaurantList | filterRestaurant:searchQuery:'restaurant'"
-                [details]="restaurant" class="restaurant">
+                [details]="restaurant" class="restaurant-component">
             </app-restaurant>
         </div>
     </div>

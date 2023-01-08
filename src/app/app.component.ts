@@ -8,6 +8,8 @@ import { RestaurantService } from './restaurant.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  sidebarStatus: boolean = true;
+
   constructor(
     private spinner: NgxSpinnerService,
     private restaurantService: RestaurantService
@@ -24,4 +26,8 @@ export class AppComponent implements OnInit {
     })
   }
   title = 'restaurant_advisor';
+
+  toggleSidebarEvent(sidebarStatus: boolean) {
+    this.sidebarStatus = sidebarStatus;
+  }
 }

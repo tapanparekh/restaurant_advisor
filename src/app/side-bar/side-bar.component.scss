@@ -4,8 +4,11 @@
     border-radius: 0px 24px 24px 0px;
     background: #f7f7f7;
     position: fixed;
+    transition: 0.3s;
+    overflow-x: hidden;
     .brand {
         margin: 38px 0 0 30px;
+        transition: 0.3s;
         .company-logo {
             height: 22px;
             width: 43px;
@@ -20,6 +23,8 @@
     }
     .side-bar-menu {
         margin-top: 56px;
+        transition:0.3s;
+        display: block;
         .menu {
             padding: 0;
             margin: 0 16px 0 16px;
@@ -52,6 +57,7 @@
         margin-left: 32px;
         bottom: 36px;
         position: absolute;
+        transition: 0.3s;
         .user-name {
             font-weight: 700;
             font-size: 14px;

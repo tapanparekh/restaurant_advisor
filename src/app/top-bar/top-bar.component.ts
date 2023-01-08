@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { RestaurantService } from '../restaurant.service';
 
 @Component({
@@ -9,13 +9,18 @@ import { RestaurantService } from '../restaurant.service';
 export class TopBarComponent {
 
   searchQuery: string = '';
+  isSidebarOpen: boolean = true;
+  @Output() toggleSidebarEvent: EventEmitter<boolean> = new EventEmitter();
 
   constructor(private restaurantService: RestaurantService) {
-
   }
 
   executeSearch(searchQuery: any) {
     this.restaurantService.executeSearch(searchQuery.target.value);
   }
 
+  toggleSidebar(): void {
+    this.isSidebarOpen = !this.isSidebarOpen
+    this.toggleSidebarEvent.emit(this.isSidebarOpen);
+  }
 }
