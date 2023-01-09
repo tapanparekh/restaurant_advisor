@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { IRestaurant } from '../IRestaurant';
-import { RestaurantService } from '../restaurant.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { IRestaurant } from '../../services/IRestaurant';
+import { RestaurantService } from '../../services/restaurant.service';
 
 @Component({
   selector: 'app-restaurant-list',
   templateUrl: './restaurant-list.component.html',
   styleUrls: ['./restaurant-list.component.scss']
 })
-export class RestaurantListComponent implements OnInit {
+export class RestaurantListComponent implements OnInit, OnDestroy {
 
   restaurantList: IRestaurant[] = [];
   categoryList: string[] = [];
@@ -45,4 +45,7 @@ export class RestaurantListComponent implements OnInit {
     });
   }
 
+  ngOnDestroy(): void {
+    this.restaurantService.executeSearchSubject.unsubscribe();
+  }
 }

@@ -5,15 +5,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { RestaurantDetailsComponent } from './restaurant-details/restaurant-details.component';
-import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
+import { RestaurantDetailsComponent } from './pages/restaurant-details/restaurant-details.component';
+import { RestaurantListComponent } from './pages/restaurant-list/restaurant-list.component';
 
-import { HttpInterceptorService } from './http-interceptor.service';
-import { RestaurantService } from './restaurant.service';
-import { RestaurantComponent } from './restaurant-list/restaurant/restaurant.component';
-import { SideBarComponent } from './side-bar/side-bar.component';
-import { TopBarComponent } from './top-bar/top-bar.component';
-import { FilterRestaurantPipe } from './filter-restaurant.pipe';
+import { HttpInterceptorService } from './services/http-interceptor.service';
+import { RestaurantService } from './services/restaurant.service';
+import { RestaurantComponent } from './pages/restaurant-list/restaurant/restaurant.component';
+import { SideBarComponent } from './components/side-bar/side-bar.component';
+import { TopBarComponent } from './components/top-bar/top-bar.component';
+import { FilterRestaurantPipe } from './pipes/filter-restaurant.pipe';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 // Import library module
 import { NgxSpinnerModule } from "ngx-spinner";

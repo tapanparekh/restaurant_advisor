@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { IRestaurant, IMenu } from './IRestaurant';
 
 @Pipe({
   name: 'filterRestaurant',

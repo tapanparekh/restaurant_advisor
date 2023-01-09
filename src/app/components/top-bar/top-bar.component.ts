@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { RestaurantService } from '../restaurant.service';
+import { RestaurantService } from '../../services/restaurant.service';
 
 @Component({
   selector: 'app-top-bar',

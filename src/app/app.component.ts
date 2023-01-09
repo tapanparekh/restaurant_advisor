@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { RestaurantService } from './restaurant.service';
+import { RestaurantService } from './services/restaurant.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy  {
   sidebarStatus: boolean = true;
 
   constructor(
@@ -29,5 +29,9 @@ export class AppComponent implements OnInit {
 
   toggleSidebarEvent(sidebarStatus: boolean) {
     this.sidebarStatus = sidebarStatus;
+  }
+
+  ngOnDestroy(): void {
+    this.restaurantService.setLoaderSubject.unsubscribe();
   }
 }

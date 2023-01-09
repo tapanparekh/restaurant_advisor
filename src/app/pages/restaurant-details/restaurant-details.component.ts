@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IMenu, IRestaurant } from '../IRestaurant';
-import { RestaurantService } from '../restaurant.service';
+import { IMenu, IRestaurant } from '../../services/IRestaurant';
+import { RestaurantService } from '../../services/restaurant.service';
 
 @Component({
   selector: 'app-restaurant-details',
   templateUrl: './restaurant-details.component.html',
   styleUrls: ['./restaurant-details.component.scss']
 })
-export class RestaurantDetailsComponent implements OnInit {
+export class RestaurantDetailsComponent implements OnInit, OnDestroy {
 
   restaurantId: string = '';
   restaurant: IRestaurant = {};
@@ -54,4 +54,6 @@ export class RestaurantDetailsComponent implements OnInit {
     this.selectedCatogary = category !== 'All' ? category : '';
   }
 
+  ngOnDestroy(): void {
+  }
 }
